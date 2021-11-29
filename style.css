@@ -1,0 +1,21 @@
+.alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    background-color: #ccc;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.alert button,
+.make-alert {
+    all: unset;
+    padding: 4px 16px;
+    background-color: #aaa;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none;
+}

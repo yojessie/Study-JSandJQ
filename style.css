@@ -1,5 +1,6 @@
 .alert {
-    display: flex;
+    display: none;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     width: 500px;

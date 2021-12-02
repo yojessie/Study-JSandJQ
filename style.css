@@ -1,22 +1,57 @@
-.alert {
+.main-background {
+    background-image: url(/asset/background-image.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    object-fit: cover;
+    color: #fff;
+    border-radius: 0;
+}
+
+.my-4 {
+    border-top: 1px solid rgba(255, 255, 255, .3);
+}
+
+.more-modal {
+    background: rgba(0, 0, 0, .6);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
     display: none;
-    /* display: flex; */
+}
+
+.white-box {
+    width: 50%;
+    padding: 24px;
+    margin: 60px auto;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.close-button {
+    all: unset;
+    padding: 8px 16px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    color: tomato;
+}
+
+.close-button:hover {
+    opacity: .7;
+}
+
+.nav-menu {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 500px;
-    background-color: #ccc;
-    padding: 24px;
-    border-radius: 8px;
+    padding: 16px;
+    color: #333;
 }
 
-.alert button,
-.make-alert {
-    all: unset;
-    padding: 4px 16px;
-    background-color: #aaa;
-    border-radius: 4px;
+.nav-menu h4 {
+    margin: 0;
 }
 
-.coloring {
-    color: tomato;
+.nav-sub {
+    display: none;
 }

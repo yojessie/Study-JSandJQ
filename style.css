@@ -1,3 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input,
+button {
+    all: unset;
+}
+
 .main-background {
     background-image: url(/asset/background-image.jpeg);
     background-repeat: no-repeat;
@@ -11,7 +22,7 @@
     border-top: 1px solid rgba(255, 255, 255, .3);
 }
 
-.more-modal {
+.login-modal {
     background: rgba(0, 0, 0, .6);
     position: fixed;
     z-index: 5;
@@ -21,22 +32,44 @@
 }
 
 .white-box {
-    width: 50%;
+    width: 60%;
     padding: 24px;
-    margin: 60px auto;
+    margin: 100px auto;
     border-radius: 8px;
     background-color: #fff;
 }
 
-.close-button {
-    all: unset;
-    padding: 8px 16px;
+.white-box input {
+    width: 100%;
+    padding: 8px;
     background-color: #f2f2f2;
-    border-radius: 8px;
-    color: tomato;
+    border-radius: 4px;
+    margin-bottom: 8px;
 }
 
-.close-button:hover {
+.button-group {
+    display: flex;
+}
+
+.login-button {
+    padding: 8px 16px;
+    background-color: tomato;
+    color: #fff;
+    border-radius: 8px;
+    margin-right: 8px;
+    flex: 1;
+    text-align: center;
+}
+
+.close-button {
+    padding: 8px 16px;
+    border: 1px solid tomato;
+    color: tomato;
+    border-radius: 8px;
+}
+
+.close-button:hover,
+.login-button:hover {
     opacity: .7;
 }
 

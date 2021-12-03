@@ -1,7 +1,7 @@
-// Handle more Modal
+// Handle login Modal
 const moreButton = $('.btn');
 const closeButton = $('.close-button');
-const textModal = $('.more-modal');
+const textModal = $('.login-modal');
 
 
 moreButton.on('click', function(){
@@ -10,6 +10,18 @@ moreButton.on('click', function(){
 
 closeButton.on('click', function(){
     textModal.toggle();
+})
+
+
+// Handle login submit
+const loginForm = $('.login-form');
+const emailInput = $('.email-input');
+
+loginForm.on('submit', function(event){
+    if (emailInput.val() == '') {
+        event.preventDefault();
+        alert('Please enter your Email');
+    }
 })
 
 

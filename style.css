@@ -5,7 +5,8 @@
 }
 
 input,
-button {
+button,
+li {
     all: unset;
 }
 
@@ -88,10 +89,43 @@ button {
     color: #333;
 }
 
+.nav-menu-title {
+    display: flex;
+}
+
 .nav-menu h4 {
     margin: 0;
+    margin-left: 16px;
 }
 
 .nav-sub {
     display: none;
+}
+
+.left-menu {
+    position: fixed;
+    width: 240px;
+    height: 100vh;
+    padding: 24px;
+    background-color: #f2f2f2;
+    margin-left: -240px;
+}
+
+.left-menu h3 {
+    margin-bottom: 24px;
+}
+
+.left-menu li {
+    display: block;
+    margin-bottom: 16px;
+}
+
+.left-menu-close {
+    border: 1px solid #ccc;
+    padding: 8px 24px;
+    border-radius: 8px;
+}
+
+.left-menu-close:hover {
+    background-color: #ccc;
 }

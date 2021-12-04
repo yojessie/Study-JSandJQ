@@ -66,3 +66,45 @@ function real369game(number) {
 }
 
 real369game(19);
+
+
+// 이자율 계산하기
+// function depositAfter(deposit) {
+//     if (deposit <= 50000) {
+//         console.log(deposit * 1.15 * 1.15);
+//     } else {
+//         console.log(deposit * 1.2 * 1.2);
+//     }
+// }
+// depositAfter(60000);
+
+let deposit = 60000;
+let depositAfter = 0;
+
+if (deposit <= 50000) {
+    depositAfter = deposit * 1.15 * 1.15;
+} else {
+    depositAfter = deposit * 1.2 * 1.2;
+}
+
+console.log(depositAfter);
+
+
+// 최대 커피 리필양 계산하기
+// let coffee = 360;
+// let firstRefill = coffee * 2 / 3;
+// let secondRefill = firstRefill * 2 / 3;
+// let coffeeDrank = coffee + firstRefill + secondRefill;
+// console.log(coffeeDrank + 'ml');
+
+let coffee = 360;
+let coffeeDrank = 0;
+
+let refill = coffee * 2 / 3;
+coffeeDrank = coffee + refill;
+
+refill = coffee * 2 / 3;
+coffeeDrank = coffee + refill;
+
+console.log(coffeeDrank + 'ml');
+

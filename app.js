@@ -20,15 +20,30 @@ const passwordInput = $('.password-input');
 const warningEmail = $('.warning.email');
 const warningPassword = $('.warning.password');
 
+const regularEmail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+const regularPassword = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?]).{8,16}$/);
+
 loginForm.on('submit', function(event){
     if (emailInput.val() == '') {
         event.preventDefault();
         warningEmail.show();
-    } 
+    } else if (regularEmail.test(emailInput.val()) == false) {
+        event.preventDefault();
+        warningEmail.text('Please enter the email in correct format');
+        warningEmail.show();
+    } else {
+        warningEmail.hide();
+    }
     
     if (passwordInput.val() == '') {
         event.preventDefault();
         warningPassword.show();
+    } else if (regularPassword.test(passwordInput.val()) == false) {
+        event.preventDefault();
+        warningPassword.text('Password must be within 6 to 18 characters including uppercase, lowercase, numbers and special characters.');
+        warningPassword.show();
+    } else {
+        warningPassword.hide();
     }
 })
 
@@ -54,9 +69,3 @@ leftMenuButton.click(function(){
 leftClose.click(function(){
     leftMenu.removeClass('left-menu-open');
 })
-
-// animation 구현할때 자바스크립트에서 animate 추가하는 식으로는 느려서 잘 안쓴다.
-// css에서 transition 속성을 추가 한 후, 자바스크립트에서 css 속성을 바꾸는 방식으로 사용.
-// transition을 줄 때, margin/width/position 등을 조절해서 사용하는 것은 비추
-// transform: translate() / rotate() / scale(); 을 사용하자.
-// 사실 addClass 등의 방식으로 푸는것이 가장 BEST

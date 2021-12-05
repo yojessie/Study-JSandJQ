@@ -5,11 +5,11 @@ const textModal = $('.login-modal');
 
 
 loginButton.on('click', function(){
-    textModal.css('transform', 'translateY(0)');
+    textModal.addClass('login-modal-open');
 })
 
 closeButton.on('click', function(){
-    textModal.css('transform', 'translateY(-100vh)');
+    textModal.removeClass('login-modal-open');
 })
 
 
@@ -48,11 +48,11 @@ const leftMenu = $('.left-menu');
 const leftClose = $('.left-menu-close');
 
 leftMenuButton.click(function(){
-    leftMenu.css('transform', 'translateX(0)');
+    leftMenu.addClass('left-menu-open');
 });
 
 leftClose.click(function(){
-    leftMenu.css('transform', 'translateX(-240px)');
+    leftMenu.removeClass('left-menu-open');
 })
 
 // animation 구현할때 자바스크립트에서 animate 추가하는 식으로는 느려서 잘 안쓴다.

@@ -1,15 +1,15 @@
 // Handle login Modal
-const moreButton = $('.btn');
+const loginButton = $('.btn');
 const closeButton = $('.close-button');
 const textModal = $('.login-modal');
 
 
-moreButton.on('click', function(){
-    textModal.toggle();
+loginButton.on('click', function(){
+    textModal.css('transform', 'translateY(0)');
 })
 
 closeButton.on('click', function(){
-    textModal.toggle();
+    textModal.css('transform', 'translateY(-100vh)');
 })
 
 
@@ -48,9 +48,15 @@ const leftMenu = $('.left-menu');
 const leftClose = $('.left-menu-close');
 
 leftMenuButton.click(function(){
-    leftMenu.animate({marginLeft : '0'}, 500);
+    leftMenu.css('transform', 'translateX(0)');
 });
 
 leftClose.click(function(){
-    leftMenu.animate({marginLeft : '-240px'}, 500);
+    leftMenu.css('transform', 'translateX(-240px)');
 })
+
+// animation 구현할때 자바스크립트에서 animate 추가하는 식으로는 느려서 잘 안쓴다.
+// css에서 transition 속성을 추가 한 후, 자바스크립트에서 css 속성을 바꾸는 방식으로 사용.
+// transition을 줄 때, margin/width/position 등을 조절해서 사용하는 것은 비추
+// transform: translate() / rotate() / scale(); 을 사용하자.
+// 사실 addClass 등의 방식으로 푸는것이 가장 BEST

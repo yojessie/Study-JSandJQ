@@ -69,3 +69,73 @@ leftMenuButton.click(function(){
 leftClose.click(function(){
     leftMenu.removeClass('left-menu-open');
 })
+
+
+// Handle Carousel
+const firstButton = $('.slider-button.button1');
+const secondButton = $('.slider-button.button2');
+const thirdButton = $('.slider-button.button3');
+const slideContainer = $('.slide-container');
+
+const nextButton = $('.slider-button-group-2>.next');
+const prevButton = $('.slider-button-group-2>.prev');
+
+let carouselNow = 1;
+
+firstButton.click(function(){
+    slideContainer.css('transform', 'translateX(0)');
+    carouselNow = 1;
+    nextButton.show();
+    prevButton.hide();
+});
+
+secondButton.click(function(){
+    slideContainer.css('transform', 'translateX(-100vw)');
+    carouselNow = 2;
+    nextButton.show();
+    prevButton.show();
+});
+
+thirdButton.click(function(){
+    slideContainer.css('transform', 'translateX(-200vw)');
+    carouselNow = 3;
+    nextButton.hide();
+    prevButton.show();
+});
+
+
+nextButton.click(function(){
+    if (carouselNow == 1) {
+        slideContainer.css('transform', 'translateX(-100vw)');
+        carouselNow = 2;
+        nextButton.show();
+        prevButton.show();
+    } else if (carouselNow == 2) {
+        slideContainer.css('transform', 'translateX(-200vw)');
+        carouselNow = 3;
+        nextButton.hide();
+        prevButton.show();
+    } else {
+        carouselNow = 1;
+        nextButton.show();
+        prevButton.hide();
+    }
+});
+
+prevButton.click(function(){
+    if (carouselNow == 3) {
+        slideContainer.css('transform', 'translateX(-100vw)');
+        carouselNow = 2;
+        nextButton.show();
+        prevButton.show();
+    } else if (carouselNow == 2) {
+        slideContainer.css('transform', 'translateX(0)');
+        carouselNow = 1;
+        nextButton.show();
+        prevButton.hide();
+    } else {
+        carouselNow = 3;
+        nextButton.hide();
+        prevButton.show();
+    }
+});

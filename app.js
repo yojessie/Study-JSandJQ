@@ -85,39 +85,30 @@ let carouselNow = 1;
 firstButton.click(function(){
     slideContainer.css('transform', 'translateX(0)');
     carouselNow = 1;
-    prevButton.hide();
-    nextButton.show();
 });
 
 secondButton.click(function(){
     slideContainer.css('transform', 'translateX(-100vw)');
     carouselNow = 2;
-    prevButton.show();
 });
 
 thirdButton.click(function(){
     slideContainer.css('transform', 'translateX(-200vw)');
     carouselNow = 3;
-    nextButton.hide();
 });
 
 
 nextButton.click(function(){
-    slideContainer.css('transform', 'translateX(-' + carouselNow + '00vw)');
-    carouselNow = carouselNow + 1;
-    prevButton.show();
-    if (carouselNow == 3) {
-        nextButton.hide();
+    if (carouselNow < 3) {
+        slideContainer.css('transform', 'translateX(-' + carouselNow + '00vw)');
+        carouselNow = carouselNow + 1;
     } 
 });
 
 prevButton.click(function(){
-    carouselNow = carouselNow - 2;
-    slideContainer.css('transform', 'translateX(-' + carouselNow + '00vw)');
-    carouselNow = carouselNow + 1;
-    nextButton.show();
-    if (carouselNow == 1) {
-        prevButton.hide();
+    if (carouselNow > 1) {
+        slideContainer.css('transform', 'translateX(-' + (carouselNow - 2) + '00vw)');
+        carouselNow = carouselNow - 1;
     }
 });
 

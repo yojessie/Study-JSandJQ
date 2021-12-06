@@ -216,7 +216,7 @@ li {
     top: 50%;
     transform: translateY(-50%);
     color: #fff;
-    display: none; 
+    /* display: none;  */
 }
 
 .slider-button-group-2 > .next {

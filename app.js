@@ -57,6 +57,22 @@ menuButton.click(function(){
 })
 
 
+// Handle GNB scroll
+const gnb = $('.nav-menu');
+const logo = $('.nav-menu-title h4');
+
+$(window).on('scroll', function(){
+    if ($(window).scrollTop() > 100) {
+        gnb.addClass('scroll-down');
+        logo.addClass('scroll-down-title');
+    } else {
+        gnb.removeClass('scroll-down');
+        logo.removeClass('scroll-down-title');
+    }
+})
+
+
+
 // Handle left menu
 const leftMenuButton = $('.left-menu-button');
 const leftMenu = $('.left-menu');

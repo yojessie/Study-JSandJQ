@@ -6,17 +6,20 @@
 
 input,
 button,
-li {
+li,
+a {
     all: unset;
 }
 
 .main-background {
+    height: 500px;
     background-image: url(/asset/background-image.jpeg);
     background-repeat: no-repeat;
     background-size: 100% auto;
     object-fit: cover;
     color: #fff;
     border-radius: 0;
+    padding-top: 140px;
 }
 
 .my-4 {
@@ -87,24 +90,41 @@ li {
 }
 
 .nav-menu {
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px;
-    color: #333;
+    color: #fff;
+    transition: background-color 400ms;
+    z-index: 8;
 }
 
 .nav-menu-title {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .nav-menu h4 {
     margin: 0;
     margin-left: 16px;
+    transition: font-size 400ms;
+}
+
+.scroll-down-title {
+    font-size: 16px;
+    padding-top: 4px;
 }
 
 .nav-sub {
+    margin-top: 60px;
     display: none;
+}
+
+.scroll-down {
+    background-color: seagreen;
 }
 
 .left-menu {
@@ -225,4 +245,9 @@ li {
     top: 50%;
     transform: translateY(-50%);
     color: #fff;
+}
+
+.blank {
+    width: 100%;
+    height: 1000px;
 }

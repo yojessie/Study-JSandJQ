@@ -119,7 +119,9 @@ a {
 }
 
 .nav-sub {
-    margin-top: 60px;
+    padding-top: 60px;
+    background-color: seagreen;
+    border-radius: 0;
     display: none;
 }
 

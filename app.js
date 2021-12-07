@@ -128,3 +128,30 @@ prevButton.click(function(){
     }
 });
 
+
+// Handle tab menu
+const tabButton = $('.tab-button');
+const tabContent = $('.tab-content');
+
+
+tabButton.eq(0).click(function(){
+    tabButton.removeClass('active');
+    tabContent.removeClass('show');
+    tabButton.eq(0).addClass('active');
+    tabContent.eq(0).addClass('show');
+});
+
+tabButton.eq(1).click(function(){
+    tabButton.removeClass('active');
+    tabContent.removeClass('show');
+    tabButton.eq(1).addClass('active');
+    tabContent.eq(1).addClass('show');
+});
+
+tabButton.eq(2).click(function(){
+    tabButton.removeClass('active');
+    tabContent.removeClass('show');
+    tabButton.eq(2).addClass('active');
+    tabContent.eq(2).addClass('show');
+});
+

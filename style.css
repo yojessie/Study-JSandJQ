@@ -11,6 +11,8 @@ a {
     all: unset;
 }
 
+
+/* MAIN */
 .main-background {
     height: 500px;
     background-image: url(/asset/background-image.jpeg);
@@ -26,6 +28,8 @@ a {
     border-top: 1px solid rgba(255, 255, 255, .3);
 }
 
+
+/* LOGIN MODAL */
 .login-modal {
     background: rgba(0, 0, 0, .6);
     position: fixed;
@@ -34,6 +38,7 @@ a {
     height: 100%;
     transition: all 1s;
     transform: translateY(-100vh);
+    z-index: 10;
 }
 
 .login-modal-open {
@@ -89,6 +94,8 @@ a {
     opacity: .7;
 }
 
+
+/* GNB */
 .nav-menu {
     position: fixed;
     width: 100%;
@@ -129,6 +136,8 @@ a {
     background-color: seagreen;
 }
 
+
+/* LEFT MENU */
 .left-menu {
     position: fixed;
     width: 240px;
@@ -163,6 +172,8 @@ a {
     background-color: #ccc;
 }
 
+
+/* CAROUSEL */
 .slider {
     overflow: hidden;
     position: relative;

@@ -1,15 +1,21 @@
 // Handle login Modal
 const loginButton = $('.btn');
 const closeButton = $('.close-button');
-const textModal = $('.login-modal');
+const loginModal = $('.login-modal');
 
 
-loginButton.on('click', function(){
-    textModal.addClass('login-modal-open');
+loginButton.click (function() {
+    loginModal.addClass('login-modal-open');
 })
 
-closeButton.on('click', function(){
-    textModal.removeClass('login-modal-open');
+closeButton.click (function() {
+    loginModal.removeClass('login-modal-open');
+})
+
+loginModal.click (function(event) {
+    if (event.target == this) {
+        loginModal.removeClass('login-modal-open');
+    }
 })
 
 
@@ -129,10 +135,9 @@ prevButton.click(function(){
 });
 
 
-// Handle tab menu
+// Handle tab menu (by using for loop)
 const tabButton = $('.tab-button');
 const tabContent = $('.tab-content');
-
 
 for (let i = 0; i < tabButton.length; i++) {
     tabButton.eq(i).click(function(){
@@ -140,7 +145,5 @@ for (let i = 0; i < tabButton.length; i++) {
         tabContent.removeClass('show');
         tabButton.eq(i).addClass('active');
         tabContent.eq(i).addClass('show');
-
-        console.log(i);
     });
 }

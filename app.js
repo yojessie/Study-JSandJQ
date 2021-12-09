@@ -147,3 +147,20 @@ for (let i = 0; i < tabButton.length; i++) {
         tabContent.eq(i).addClass('show');
     });
 }
+
+
+// Handle select box
+const selectCatagory = $('.select-control').eq(0);
+const selectOuter = $('.select-control').eq(1);
+const selectTop = $('.select-control').eq(2);
+
+selectCatagory.on('change', function(){
+    if (selectCatagory.val() == '아우터') {
+        selectTop.addClass('hide');
+        selectOuter.removeClass('hide');
+    }
+    if (selectCatagory.val() == '상의') {
+        selectOuter.addClass('hide');
+        selectTop.removeClass('hide');
+    }
+})

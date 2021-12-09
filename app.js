@@ -150,17 +150,36 @@ for (let i = 0; i < tabButton.length; i++) {
 
 
 // Handle select box
-const selectCatagory = $('.select-control').eq(0);
-const selectOuter = $('.select-control').eq(1);
-const selectTop = $('.select-control').eq(2);
+const firstOption = $('.select-control');
+const secondOption = $('.select-control.second');
 
-selectCatagory.on('change', function(){
-    if (selectCatagory.val() == '아우터') {
-        selectTop.addClass('hide');
-        selectOuter.removeClass('hide');
+firstOption.on('change', function(){
+    secondOption.html('');
+    
+    if (firstOption.val() == '아우터') {
+        secondOption.removeClass('hide');
+        let outerOpt = `
+        <option selected disabled>아우터 종류를 선택하세요</option>
+        <option>자켓</option>
+        <option>코트</option>
+        <option>패딩</option>`;
+        secondOption.append(outerOpt);
+    } else if (firstOption.val() == '상의') {
+        secondOption.removeClass('hide');
+        let outerOpt = `
+        <option selected disabled>상의 종류를 선택하세요</option>
+        <option>블라우스</option>
+        <option>스웨터</option>
+        <option>맨투맨</option>`;
+        secondOption.append(outerOpt);
+    } else if (firstOption.val() == '하의') {
+        secondOption.removeClass('hide');
+        let outerOpt = `
+        <option selected disabled>하의 종류를 선택하세요</option>
+        <option>슬랙스</option>
+        <option>바지</option>
+        <option>치마</option>`;
+        secondOption.append(outerOpt);
     }
-    if (selectCatagory.val() == '상의') {
-        selectOuter.addClass('hide');
-        selectTop.removeClass('hide');
-    }
+
 })

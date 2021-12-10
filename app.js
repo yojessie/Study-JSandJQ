@@ -176,33 +176,30 @@ function openTab(i) {
 const firstOption = $('.select-control');
 const secondOption = $('.select-control.second');
 
+const outerOption = ['자켓', '코트', '패딩'];
+const topOption = ['블라우스', '스웨터', '맨투맨'];
+const bottomOption = ['슬랙스', '청바지', '치마'];
+
 firstOption.on('change', function(){
     secondOption.html('');
+    secondOption.removeClass('hide');
     
     if (firstOption.val() == '아우터') {
-        secondOption.removeClass('hide');
-        let outerOpt = `
-        <option selected disabled>아우터 종류를 선택하세요</option>
-        <option>자켓</option>
-        <option>코트</option>
-        <option>패딩</option>`;
-        secondOption.append(outerOpt);
-    } else if (firstOption.val() == '상의') {
-        secondOption.removeClass('hide');
-        let outerOpt = `
-        <option selected disabled>상의 종류를 선택하세요</option>
-        <option>블라우스</option>
-        <option>스웨터</option>
-        <option>맨투맨</option>`;
-        secondOption.append(outerOpt);
-    } else if (firstOption.val() == '하의') {
-        secondOption.removeClass('hide');
-        let outerOpt = `
-        <option selected disabled>하의 종류를 선택하세요</option>
-        <option>슬랙스</option>
-        <option>바지</option>
-        <option>치마</option>`;
-        secondOption.append(outerOpt);
+        for (let i = 0; i < outerOption.length; i++) {
+            let templete = `<option>${outerOption[i]}</option>`;
+            secondOption.append(templete);
+        }
     }
-
-})
+    if (firstOption.val() == '상의') {
+        for (let i = 0; i < topOption.length; i++) {
+            let templete = `<option>${topOption[i]}</option>`;
+            secondOption.append(templete);
+        }
+    }
+    if (firstOption.val() == '하의') {
+        for (let i = 0; i < bottomOption.length; i++) {
+            let templete = `<option>${bottomOption[i]}</option>`;
+            secondOption.append(templete);
+        }
+    }
+});

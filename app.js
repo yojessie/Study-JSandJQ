@@ -185,21 +185,21 @@ firstOption.on('change', function(){
     secondOption.removeClass('hide');
     
     if (firstOption.val() == '아우터') {
-        for (let i = 0; i < outerOption.length; i++) {
-            let templete = `<option>${outerOption[i]}</option>`;
+        outerOption.forEach(function(i){
+            let templete = `<option>${i}</option>`;
             secondOption.append(templete);
-        }
+        })
     }
     if (firstOption.val() == '상의') {
-        for (let i = 0; i < topOption.length; i++) {
-            let templete = `<option>${topOption[i]}</option>`;
+        topOption.forEach(function(i){
+            let templete = `<option>${i}</option>`;
             secondOption.append(templete);
-        }
+        })
     }
     if (firstOption.val() == '하의') {
-        for (let i = 0; i < bottomOption.length; i++) {
-            let templete = `<option>${bottomOption[i]}</option>`;
+        bottomOption.forEach(function(i){
+            let templete = `<option>${i}</option>`;
             secondOption.append(templete);
-        }
+        })
     }
 });

@@ -136,17 +136,40 @@ prevButton.click(function(){
 
 
 // Handle tab menu (by using for loop)
+// const tabButton = $('.tab-button');
+// const tabContent = $('.tab-content');
+
+// for (let i = 0; i < tabButton.length; i++) {
+//     tabButton.eq(i).click(function(){
+//         openTab(i);
+//     });
+// };
+
+// function openTab(i) {
+//     tabButton.removeClass('active');
+//     tabContent.removeClass('show');
+//     tabButton.eq(i).addClass('active');
+//     tabContent.eq(i).addClass('show');
+// };
+
+const tabList = $('.tab-list');
 const tabButton = $('.tab-button');
 const tabContent = $('.tab-content');
 
 for (let i = 0; i < tabButton.length; i++) {
-    tabButton.eq(i).click(function(){
-        tabButton.removeClass('active');
-        tabContent.removeClass('show');
-        tabButton.eq(i).addClass('active');
-        tabContent.eq(i).addClass('show');
+    tabButton.click(function(event){
+        if (event.target == document.querySelectorAll('.tab-button')[i]) {
+          openTab(i)
+        };
     });
 }
+
+function openTab(i) {
+    tabButton.removeClass('active');
+    tabContent.removeClass('show');
+    tabButton.eq(i).addClass('active');
+    tabContent.eq(i).addClass('show');
+};
 
 
 // Handle select box

@@ -317,10 +317,6 @@ select {
     margin-bottom: 80px;
 }
 
-.select-group {
-    margin-bottom: 300px;
-}
-
 .select-control {
     width: 100%;
     padding: 8px 16px;
@@ -331,4 +327,9 @@ select {
 
 .hide {
     display: none;
+}
+
+/* PRODUCT CARD */
+.card-group {
+    margin-bottom: 80px;
 }

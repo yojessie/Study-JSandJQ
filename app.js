@@ -203,3 +203,20 @@ firstOption.on('change', function(){
         })
     }
 });
+
+
+
+// Handle product card (Data binding)
+const products = [
+    { id : 0, price : 70000, title : 'Blossom Dress' },
+    { id : 1, price : 50000, title : 'Springfield Shirt' },
+    { id : 2, price : 60000, title : 'Black Monastery' }
+];
+
+const productCardTitle = $('.card-body h5');
+const productCardPrice = $('.card-body p');
+
+for (let i = 0; i < products.length; i++) {
+    productCardTitle.eq(i).html(products[i].title);
+    productCardPrice.eq(i).html(products[i].price + '원');
+}

@@ -207,16 +207,56 @@ firstOption.on('change', function(){
 
 
 // Handle product card (Data binding)
-const products = [
+const productCardTitle = $('.card-body h5');
+const productCardPrice = $('.card-body p');
+const sortButtons = $('.sort-button button');
+const sortExpensive = $('.sort-button .expensive');
+const sortCheaper = $('.sort-button .cheaper');
+const sortAlphabet = $('.sort-button .alphabet');
+
+let products = [
     { id : 0, price : 70000, title : 'Blossom Dress' },
     { id : 1, price : 50000, title : 'Springfield Shirt' },
     { id : 2, price : 60000, title : 'Black Monastery' }
 ];
 
-const productCardTitle = $('.card-body h5');
-const productCardPrice = $('.card-body p');
-
 for (let i = 0; i < products.length; i++) {
     productCardTitle.eq(i).html(products[i].title);
     productCardPrice.eq(i).html(products[i].price + '원');
-}
+};
+
+sortExpensive.click(function() {
+    sortButtons.removeClass('sort-active');
+    sortExpensive.addClass('sort-active');
+    products.sort(function(a,b) {
+        return b.price - a.price;
+    });
+    for (let i = 0; i < products.length; i++) {
+        productCardTitle.eq(i).html(products[i].title);
+        productCardPrice.eq(i).html(products[i].price + '원');
+    }
+});
+
+sortCheaper.click(function() {
+    sortButtons.removeClass('sort-active');
+    sortCheaper.addClass('sort-active');
+    products.sort(function(a,b) {
+        return a.price - b.price;
+    });
+    for (let i = 0; i < products.length; i++) {
+        productCardTitle.eq(i).html(products[i].title);
+        productCardPrice.eq(i).html(products[i].price + '원');
+    }
+});
+
+sortAlphabet.click(function() {
+    sortButtons.removeClass('sort-active');
+    sortAlphabet.addClass('sort-active');
+    products.sort(function(a,z) {
+        return a.title - z.title;
+    });
+    for (let i = 0; i < products.length; i++) {
+        productCardTitle.eq(i).html(products[i].title);
+        productCardPrice.eq(i).html(products[i].price + '원');
+    }
+});

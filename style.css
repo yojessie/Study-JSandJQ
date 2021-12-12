@@ -298,7 +298,7 @@ select {
     justify-content: center;
     align-items: center;
     width: 780px;
-    height: 780px;
+    height: 300px;
     border-radius: 16px;
     background-color: #f2f2f2;
     color: seagreen;
@@ -330,6 +330,27 @@ select {
 }
 
 /* PRODUCT CARD */
+.sort-button {
+    width: 690px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+}
+
+.sort-button button {
+    padding: 8px 16px;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+}
+
+.sort-button button:hover {
+    opacity: .5;
+}
+
+.sort-active {
+    background-color: seagreen;
+    color: #fff;
+}
+
 .card-group {
     margin-bottom: 80px;
 }

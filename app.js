@@ -207,12 +207,14 @@ firstOption.on('change', function(){
 
 
 // Handle product card (Data binding)
-const productCardTitle = $('.card-body h5');
-const productCardPrice = $('.card-body p');
+const cardGroup = $('.card-group');
+// const productCardTitle = $('.card-body h5');
+// const productCardPrice = $('.card-body p');
 const sortButtons = $('.sort-button button');
 const sortExpensive = $('.sort-button .expensive');
 const sortCheaper = $('.sort-button .cheaper');
 const sortAlphabet = $('.sort-button .alphabet');
+const priceFilter = $('.sort-button .price-filter');
 
 let products = [
     { id : 0, price : 70000, title : 'Blossom Dress' },
@@ -220,10 +222,25 @@ let products = [
     { id : 2, price : 60000, title : 'Black Monastery' }
 ];
 
-for (let i = 0; i < products.length; i++) {
-    productCardTitle.eq(i).html(products[i].title);
-    productCardPrice.eq(i).html(products[i].price + '원');
+function makeCards() {
+    cardGroup.html('');
+    products.forEach(function(i){
+        let templete = `
+            <div class="card">
+                <img src="https://via.placeholder.com/600">
+                  <div class="card-body">
+                      <h5>${i.title}</h5>
+                      <p>${i.price + '원'}</p>
+                      <button class="btn btn-danger">주문하기</button>
+                  </div>
+            </div>`;
+        cardGroup.append(templete);
+    });
 };
+
+makeCards();
+
+
 
 sortExpensive.click(function() {
     sortButtons.removeClass('sort-active');
@@ -231,10 +248,7 @@ sortExpensive.click(function() {
     products.sort(function(a,b) {
         return b.price - a.price;
     });
-    for (let i = 0; i < products.length; i++) {
-        productCardTitle.eq(i).html(products[i].title);
-        productCardPrice.eq(i).html(products[i].price + '원');
-    }
+    makeCards();
 });
 
 sortCheaper.click(function() {
@@ -243,20 +257,29 @@ sortCheaper.click(function() {
     products.sort(function(a,b) {
         return a.price - b.price;
     });
-    for (let i = 0; i < products.length; i++) {
-        productCardTitle.eq(i).html(products[i].title);
-        productCardPrice.eq(i).html(products[i].price + '원');
-    }
+    makeCards();
 });
 
 sortAlphabet.click(function() {
     sortButtons.removeClass('sort-active');
     sortAlphabet.addClass('sort-active');
-    products.sort(function(a,z) {
-        return a.title - z.title;
+    products.sort(function(a,b) {
+        if (a.title < b.title) {
+            return -1;
+        }
+        if (a.title > b.title) {
+            return 1;
+        }
+        return 0;
     });
-    for (let i = 0; i < products.length; i++) {
-        productCardTitle.eq(i).html(products[i].title);
-        productCardPrice.eq(i).html(products[i].price + '원');
-    }
+    makeCards();
 });
+
+priceFilter.click(function() {
+    sortButtons.removeClass('sort-active');
+    priceFilter.addClass('sort-active');
+    products = products.filter(function(a) {
+        return a.price <= 60000;
+    });
+    makeCards();
+})

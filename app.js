@@ -1,5 +1,5 @@
 // Handle login Modal
-const loginButton = $('.btn');
+const loginButton = $('.jumbotron a');
 const closeButton = $('.close-button');
 const loginModal = $('.login-modal');
 
@@ -208,30 +208,30 @@ firstOption.on('change', function(){
 
 // Handle product card (Data binding)
 const cardGroup = $('.card-group');
-// const productCardTitle = $('.card-body h5');
-// const productCardPrice = $('.card-body p');
 const sortButtons = $('.sort-button button');
 const sortExpensive = $('.sort-button .expensive');
 const sortCheaper = $('.sort-button .cheaper');
 const sortAlphabet = $('.sort-button .alphabet');
 const priceFilter = $('.sort-button .price-filter');
+const resetButton = $('.sort-button .reset');
 
 let products = [
-    { id : 0, price : 70000, title : 'Blossom Dress' },
-    { id : 1, price : 50000, title : 'Springfield Shirt' },
-    { id : 2, price : 60000, title : 'Black Monastery' }
+    { id : 0, price : 70000, title : 'C', image : '/asset/img-03.jpg'},
+    { id : 1, price : 50000, title : 'B', image : '/asset/img-02.jpg' },
+    { id : 2, price : 60000, title : 'A', image : '/asset/img-01.jpg' }
 ];
+let productSort = [...products];
 
 function makeCards() {
     cardGroup.html('');
-    products.forEach(function(i){
+    productSort.forEach(function(i){
         let templete = `
             <div class="card">
-                <img src="https://via.placeholder.com/600">
+                <img src="${i.image}">
                   <div class="card-body">
                       <h5>${i.title}</h5>
-                      <p>${i.price + '원'}</p>
-                      <button class="btn btn-danger">주문하기</button>
+                      <p>${i.price} 원</p>
+                      <button class="btn btn-red">주문하기</button>
                   </div>
             </div>`;
         cardGroup.append(templete);
@@ -241,11 +241,18 @@ function makeCards() {
 makeCards();
 
 
+// resetButton.click(function() {
+//     sortButtons.removeClass('sort-active');
+//     resetButton.addClass('sort-active');
+//     productSort.reset();
+//     makeCards();
+// });
 
 sortExpensive.click(function() {
     sortButtons.removeClass('sort-active');
     sortExpensive.addClass('sort-active');
-    products.sort(function(a,b) {
+    productSort = [];
+    productSort = products.sort(function(a,b) {
         return b.price - a.price;
     });
     makeCards();
@@ -254,7 +261,7 @@ sortExpensive.click(function() {
 sortCheaper.click(function() {
     sortButtons.removeClass('sort-active');
     sortCheaper.addClass('sort-active');
-    products.sort(function(a,b) {
+    productSort = products.sort(function(a,b) {
         return a.price - b.price;
     });
     makeCards();
@@ -263,7 +270,8 @@ sortCheaper.click(function() {
 sortAlphabet.click(function() {
     sortButtons.removeClass('sort-active');
     sortAlphabet.addClass('sort-active');
-    products.sort(function(a,b) {
+    productSort = [];
+    productSort = products.sort(function(a,b) {
         if (a.title < b.title) {
             return -1;
         }
@@ -278,8 +286,29 @@ sortAlphabet.click(function() {
 priceFilter.click(function() {
     sortButtons.removeClass('sort-active');
     priceFilter.addClass('sort-active');
-    products = products.filter(function(a) {
+    productSort = [];
+    productSort = products.filter(function(a) {
         return a.price <= 60000;
     });
     makeCards();
+});
+
+
+// Get text data from API
+const takeDataTitle = $('.get-data h4');
+const takeDataButton = $('.get-data .button-group button:first-child');
+const dataResetButton = $('.get-data .button-group button:last-child');
+
+takeDataButton.click(function(){
+    $.ajax({
+        url : 'https://codingapple1.github.io/hello.txt',
+        type : 'GET'
+    }).done(function(data){
+        takeDataTitle.html(data);
+    })
+});
+
+dataResetButton.click(function(){
+    console.log('d');
+    takeDataTitle.html('API에서 데이터를 가져오자');
 })

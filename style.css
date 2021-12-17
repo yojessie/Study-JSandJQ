@@ -13,6 +13,16 @@ select {
     box-sizing: border-box;
 }
 
+.btn-red {
+    background-color: tomato;
+    color: #fff;
+}
+
+.btn-green {
+    background-color: seagreen;
+    color: #fff;
+}
+
 
 /* MAIN */
 .main-background {
@@ -352,5 +362,36 @@ select {
 }
 
 .card-group {
+    width: 690px;
+    margin: 0 auto;
     margin-bottom: 80px;
+}
+
+.card-group .card {
+    overflow: hidden;
+}
+
+.card-group .card img {
+    height: 230px;
+    object-fit: cover;
+}
+
+
+/* GET API DATA */
+.get-data {
+    width: 690px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.get-data h4 {
+    margin: 0;
+    margin-right: 16px;
+}
+
+.get-data .button-group button:first-child {
+    margin-right: 8px;
 }

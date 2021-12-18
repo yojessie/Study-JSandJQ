@@ -305,10 +305,36 @@ takeDataButton.click(function(){
         type : 'GET'
     }).done(function(data){
         takeDataTitle.html(data);
-    })
+    }).fail(function(){
+        takeDataTitle.html('데이터를 불러오는데 실패했습니다');
+    }).always(function(){
+        console.log('로딩중입니다 표시하기 좋은 코드');
+    });
 });
 
 dataResetButton.click(function(){
-    console.log('d');
     takeDataTitle.html('API에서 데이터를 가져오자');
+});
+
+
+// Make product card with more button
+const moreButton = $('.get-product-card button');
+const productDiv = $('.get-product-card .products');
+
+moreButton.click(function(){
+    $.ajax({
+        url : 'https://codingapple1.github.io/data.json',
+        type : 'GET'
+    }).done(function(data){
+        let templete = `
+            <div class="card">
+                <img src="${data.img}">
+                  <div class="card-body">
+                      <h5>${data.model}</h5>
+                      <p>${data.price} 원</p>
+                      <button class="btn btn-red">주문하기</button>
+                  </div>
+            </div>`;
+        productDiv.append(templete);
+    })
 })

@@ -395,3 +395,16 @@ select {
 .get-data .button-group button:first-child {
     margin-right: 8px;
 }
+
+
+/* GET PRODUCT CARD FROM API */
+.get-product-card {
+    width: 690px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+.get-product-card button {
+    width: 100%;
+    margin-bottom: 16px;
+}

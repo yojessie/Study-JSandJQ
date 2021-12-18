@@ -23,6 +23,12 @@ select {
     color: #fff;
 }
 
+.section {
+    width: 690px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
 
 /* MAIN */
 .main-background {
@@ -275,11 +281,6 @@ select {
 
 
 /* TAB MENU */
-.tab-menu {
-    width: 690px;
-    margin: 0 auto;
-    margin-bottom: 80px;
-}
 
 .tab-list {
     display: flex;
@@ -321,12 +322,6 @@ select {
 
 
 /* OPTION BOX */
-.select-form {
-    width: 690px;
-    margin: 0 auto;
-    margin-bottom: 80px;
-}
-
 .select-control {
     width: 100%;
     padding: 8px 16px;
@@ -361,12 +356,6 @@ select {
     color: #fff;
 }
 
-.card-group {
-    width: 690px;
-    margin: 0 auto;
-    margin-bottom: 80px;
-}
-
 .card-group .card {
     overflow: hidden;
 }
@@ -379,9 +368,6 @@ select {
 
 /* GET API DATA */
 .get-data {
-    width: 690px;
-    margin: 0 auto;
-    margin-bottom: 80px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -398,13 +384,36 @@ select {
 
 
 /* GET PRODUCT CARD FROM API */
-.get-product-card {
-    width: 690px;
-    margin: 0 auto;
-    margin-bottom: 80px;
-}
 
 .get-product-card button {
     width: 100%;
     margin-bottom: 16px;
+}
+
+
+/* STICKY TEST */
+.sticky-test {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sticky-test .image {
+    position: sticky;
+    top: 200px;
+    width: 400px;
+    height: 400px;
+}
+
+.sticky-test .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sticky-test .text {
+    width: 270px;
+}
+
+.empty-space {
+    height: 1500px;
 }

@@ -338,3 +338,43 @@ moreButton.click(function(){
         productDiv.append(templete);
     })
 })
+
+
+
+// Handle scroll animation
+const cardBox = $('.image-card');
+
+$(window).scroll(function(){
+    function slope(height1, height2, variable1, variable2) {
+        let a = (variable1 - variable2) / (height1 - height2);
+        let b = -(height1 * a) + variable1;
+        
+        let height = $(window).scrollTop();
+    
+        variable = a * height + b
+        return variable;
+    }
+    
+    cardBox.eq(0).css('opacity', slope(3600, 4090, 1, 0));
+    
+    if (slope(3600, 4090, 1, .9) <= 1) {
+        cardBox.eq(0).css('transform', `scale(${slope(3600, 4090, 1, .9)})`);
+    } else {
+        cardBox.eq(0).css('transform', 'scale(1)')
+    }
+    
+    cardBox.eq(1).css('opacity', slope(4140, 4590, 1, 0));
+    
+    if (slope(4140, 4590, 1, .9) <= 1) {
+        cardBox.eq(1).css('transform', `scale(${slope(4140, 4590, 1, .9)})`);
+    } else {
+        cardBox.eq(1).css('transform', 'scale(1)')
+    }
+
+
+    // cardBox.eq(0).css('opacity', slope(3600, 4090, 1, 0));
+    // cardBox.eq(0).css('transform', `scale(${slope(3600, 4090, 1, .9)})`);
+    // cardBox.eq(1).css('opacity', slope(4140, 4590, 1, 0));
+    // cardBox.eq(1).css('transform', `scale(${slope(4140, 4590, 1, .9)})`);
+})
+

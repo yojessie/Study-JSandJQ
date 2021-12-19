@@ -402,6 +402,8 @@ select {
     top: 200px;
     width: 400px;
     height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 .sticky-test .image img{
@@ -416,4 +418,26 @@ select {
 
 .empty-space {
     height: 1500px;
+}
+
+
+/* SCROLL ANIMATION */
+.image-card-group {
+    text-align: center;
+}
+
+.image-card-group h2 {
+    margin-bottom: 40px;
+}
+
+.image-card {
+    width: 690px;
+    position: sticky;
+    top: 100px;
+    margin-bottom: 32px;
+    max-width: 690px;
+}
+
+.image-card img {
+    width: 100%;
 }

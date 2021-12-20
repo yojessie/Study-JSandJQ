@@ -25,6 +25,7 @@ select {
 
 .section {
     width: 690px;
+    height: auto;
     margin: 0 auto;
     margin-bottom: 80px;
 }
@@ -195,7 +196,7 @@ select {
 .slider {
     overflow: hidden;
     position: relative;
-    margin-bottom: 80px;
+    border-radius: 16px;
 }
 
 .slider-title {
@@ -217,9 +218,9 @@ select {
     overflow: hidden;
 }
 
-.image1,
-.image2,
-.image3 {
+.slide-box .image1,
+.slide-box .image2,
+.slide-box .image3 {
     width: 100%;
     height: 300px;
     background-repeat: no-repeat;
@@ -227,15 +228,15 @@ select {
     object-fit: cover;
 }
 
-.image1 {
+.slide-box .image1 {
     background-image: url(/asset/img-01.jpg);
 }
 
-.image2 {
+.slide-box .image2 {
     background-image: url(/asset/img-02.jpg);
 }
 
-.image3 {
+.slide-box .image3 {
     background-image: url(/asset/img-03.jpg);
 }
 
@@ -440,4 +441,71 @@ select {
 
 .image-card img {
     width: 100%;
+}
+
+
+/* TOUCH CAROUSEL */
+.touch-carousel-title {
+    text-align: center;
+}
+
+.touch-carousel {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.carousel-container {
+    display: flex;
+    width: 2070px;
+}
+
+.transforming {
+    transition: transform 500ms;
+}
+
+.carousel-box {
+    width: 690px;
+}
+
+.carousel-box .image1,
+.carousel-box .image2,
+.carousel-box .image3 {
+    width: 100%;
+    height: 300px;
+    background-size: 100% auto;
+    object-fit: cover;
+}
+
+.carousel-box .image1 {
+    background-image: url(/asset/img-01.jpg);
+}
+
+.carousel-box .image2 {
+    background-image: url(/asset/img-02.jpg);
+}
+
+.carousel-box .image3 {
+    background-image: url(/asset/img-03.jpg);
+}
+
+.carousel-button-group {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+}
+
+.carousel-button {
+    margin-right: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: .5;
+}
+
+.carousel-button:last-child {
+    margin-right: 0;
 }

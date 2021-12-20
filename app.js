@@ -350,7 +350,6 @@ $(window).scroll(function(){
         let b = -(height1 * a) + variable1;
         
         let height = $(window).scrollTop();
-    
         variable = a * height + b
         return variable;
     }
@@ -378,3 +377,63 @@ $(window).scroll(function(){
     // cardBox.eq(1).css('transform', `scale(${slope(4140, 4590, 1, .9)})`);
 })
 
+
+
+// Handle touch carousel
+const CarouselButton = $('.carousel-button');
+const carouselContainer = $('.carousel-container');
+
+CarouselButton.eq(0).css('opacity', '1');
+
+CarouselButton.eq(0).click(function(){
+    carouselContainer.addClass('transforming');
+    carouselContainer.css('transform', 'translateX(0)');
+    setTimeout(function(){
+        carouselContainer.removeClass('transforming');
+    }, 500)
+    CarouselButton.css('opacity', '.5');
+    CarouselButton.eq(0).css('opacity', '1');
+});
+
+CarouselButton.eq(1).click(function(){
+    carouselContainer.addClass('transforming');
+    carouselContainer.css('transform', 'translateX(-690px)');
+    setTimeout(function(){
+        carouselContainer.removeClass('transforming');
+    }, 500)
+    CarouselButton.css('opacity', '.5');
+    CarouselButton.eq(1).css('opacity', '1');
+});
+
+CarouselButton.eq(2).click(function(){
+    carouselContainer.addClass('transforming');
+    carouselContainer.css('transform', 'translateX(-1380px)');
+    setTimeout(function(){
+        carouselContainer.removeClass('transforming');
+    }, 500)
+    CarouselButton.css('opacity', '.5');
+    CarouselButton.eq(2).css('opacity', '1');
+});
+
+
+const touchContainer = document.querySelector('.touch-carousel'); // need vanila JS
+
+const manager = new Hammer.Manager(touchContainer);
+manager.add(new Hammer.Pan({threshold: 0})); // threshold 수치는 터치해서 얼마나 이동하면 이벤트를 발동시킬 지 정하는 부분
+
+manager.on('pan', function(e){
+    if (e.deltaX < 0) {
+        carouselContainer.css('transform', `translateX(${e.deltaX}px)`);
+
+        if (e.isFinal) {
+            carouselContainer.addClass('transforming');
+            carouselContainer.css('transform', `translateX(-690px)`);
+            setTimeout(function(){
+                carouselContainer.removeClass('transforming');
+            }, 500)
+            CarouselButton.css('opacity', '.5');
+            CarouselButton.eq(1).css('opacity', '1');
+            imageNow = 2;
+        } 
+    }
+})

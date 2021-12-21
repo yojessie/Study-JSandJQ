@@ -369,12 +369,6 @@ $(window).scroll(function(){
     } else {
         cardBox.eq(1).css('transform', 'scale(1)')
     }
-
-
-    // cardBox.eq(0).css('opacity', slope(3600, 4090, 1, 0));
-    // cardBox.eq(0).css('transform', `scale(${slope(3600, 4090, 1, .9)})`);
-    // cardBox.eq(1).css('opacity', slope(4140, 4590, 1, 0));
-    // cardBox.eq(1).css('transform', `scale(${slope(4140, 4590, 1, .9)})`);
 })
 
 
@@ -416,24 +410,71 @@ CarouselButton.eq(2).click(function(){
 });
 
 
-const touchContainer = document.querySelector('.touch-carousel'); // need vanila JS
+// Use Hammer.js
+const carouselImage = document.querySelectorAll('.carousel-box');
 
-const manager = new Hammer.Manager(touchContainer);
-manager.add(new Hammer.Pan({threshold: 0})); // threshold 수치는 터치해서 얼마나 이동하면 이벤트를 발동시킬 지 정하는 부분
-
-manager.on('pan', function(e){
+const manager1 = new Hammer.Manager(carouselImage[0]);
+manager1.add(new Hammer.Pan({threshold: 0}));
+manager1.on('pan', function(e){
     if (e.deltaX < 0) {
         carouselContainer.css('transform', `translateX(${e.deltaX}px)`);
 
         if (e.isFinal) {
             carouselContainer.addClass('transforming');
             carouselContainer.css('transform', `translateX(-690px)`);
-            setTimeout(function(){
+            setTimeout(function() {
                 carouselContainer.removeClass('transforming');
-            }, 500)
+            }, 500);
             CarouselButton.css('opacity', '.5');
             CarouselButton.eq(1).css('opacity', '1');
-            imageNow = 2;
-        } 
+        }
+    } 
+});
+
+const manager2 = new Hammer.Manager(carouselImage[1]);
+manager2.add(new Hammer.Pan({threshold: 0}));
+manager2.on('pan', function(e){
+    if (e.deltaX < 0) {
+        carouselContainer.css('transform', `translateX(${e.deltaX - 690}px)`);
+
+        if (e.isFinal) {
+            carouselContainer.addClass('transforming');
+            carouselContainer.css('transform', `translateX(-1380px)`);
+            setTimeout(function() {
+                carouselContainer.removeClass('transforming');
+            }, 500);
+            CarouselButton.css('opacity', '.5');
+            CarouselButton.eq(2).css('opacity', '1');
+        }
+    } else if (e.deltaX > 0) {
+        carouselContainer.css('transform', `translateX(${e.deltaX - 690}px)`);
+
+        if (e.isFinal) {
+            carouselContainer.addClass('transforming');
+            carouselContainer.css('transform', `translateX(0px)`);
+            setTimeout(function() {
+                carouselContainer.removeClass('transforming');
+            }, 500);
+            CarouselButton.css('opacity', '.5');
+            CarouselButton.eq(0).css('opacity', '1');
+        }
+    }
+})
+
+const manager3 = new Hammer.Manager(carouselImage[2]);
+manager3.add(new Hammer.Pan({threshold: 0}));
+manager3.on('pan', function(e){
+    if (e.deltaX > 0) {
+        carouselContainer.css('transform', `translateX(${e.deltaX - 1380}px)`);
+
+        if (e.isFinal) {
+            carouselContainer.addClass('transforming');
+            carouselContainer.css('transform', `translateX(-690px)`);
+            setTimeout(function() {
+                carouselContainer.removeClass('transforming');
+            }, 500);
+            CarouselButton.css('opacity', '.5');
+            CarouselButton.eq(1).css('opacity', '1');
+        }
     }
 })

@@ -413,9 +413,9 @@ CarouselButton.eq(2).click(function(){
 // Use Hammer.js
 const carouselImage = document.querySelectorAll('.carousel-box');
 
-const manager1 = new Hammer.Manager(carouselImage[0]);
-manager1.add(new Hammer.Pan({threshold: 0}));
-manager1.on('pan', function(e){
+const manager0 = new Hammer.Manager(carouselImage[0]);
+manager0.add(new Hammer.Pan({threshold: 0}));
+manager0.on('pan', function(e){
     if (e.deltaX < 0) {
         carouselContainer.css('transform', `translateX(${e.deltaX}px)`);
 
@@ -431,9 +431,9 @@ manager1.on('pan', function(e){
     } 
 });
 
-const manager2 = new Hammer.Manager(carouselImage[1]);
-manager2.add(new Hammer.Pan({threshold: 0}));
-manager2.on('pan', function(e){
+const manager1 = new Hammer.Manager(carouselImage[1]);
+manager1.add(new Hammer.Pan({threshold: 0}));
+manager1.on('pan', function(e){
     if (e.deltaX < 0) {
         carouselContainer.css('transform', `translateX(${e.deltaX - 690}px)`);
 
@@ -461,9 +461,9 @@ manager2.on('pan', function(e){
     }
 })
 
-const manager3 = new Hammer.Manager(carouselImage[2]);
-manager3.add(new Hammer.Pan({threshold: 0}));
-manager3.on('pan', function(e){
+const manager2 = new Hammer.Manager(carouselImage[2]);
+manager2.add(new Hammer.Pan({threshold: 0}));
+manager2.on('pan', function(e){
     if (e.deltaX > 0) {
         carouselContainer.css('transform', `translateX(${e.deltaX - 1380}px)`);
 
@@ -478,3 +478,24 @@ manager3.on('pan', function(e){
         }
     }
 })
+
+
+
+// Typing Animation
+const typingButton = $('.typing-animation button');
+const typingTag = $('.typing-animation h2');
+const typingText = $('.typing-animation h2').html();
+
+typingButton.click(function(){
+    typingAnimation(typingTag, typingText);
+})
+
+function typingAnimation(tag, text) {
+    tag.html('');
+
+    for (let i = 0; i < text.length; i++) {
+        setTimeout(function(){
+            tag.html(tag.html() + text[i])
+        }, 200 * i)
+    }
+}

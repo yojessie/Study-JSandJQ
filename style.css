@@ -223,7 +223,6 @@ select {
 .slide-box .image3 {
     width: 100%;
     height: 300px;
-    background-repeat: no-repeat;
     background-size: 100% auto;
     object-fit: cover;
 }
@@ -508,4 +507,23 @@ select {
 
 .carousel-button:last-child {
     margin-right: 0;
+}
+
+
+/* TYPING ANIMATION */
+.typing-animation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.typing-animation button {
+    margin-right: 16px;
+    height: fit-content;
+}
+
+.typing-animation h2 {
+    height: 38px;
+    margin-top: 3px;
+    transition: all 300ms ease-in-out;
 }
